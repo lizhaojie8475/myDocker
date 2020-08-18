@@ -5,7 +5,7 @@ services:
     ports:
       - "2182:2181"
     networks:
-      - hbl_net
+      - lizhaojie_net
   kafka:
     image: wurstmeister/kafka
     depends_on:
@@ -13,7 +13,7 @@ services:
     links:
       - zookeeper
     networks:
-      - hbl_net
+      - lizhaojie_net
     ports:
       - "9095:9092"
     environment:
