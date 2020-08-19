@@ -15,12 +15,11 @@ services:
     networks:
       - lizhaojie_net
     ports:
-      - "9095:9092"
+      - "9092"       #最好不要指定端口host的端口映射，这样无法扩展。如果不指定的话，我们可以直接用scale命令复制之前的配置
     environment:
-      KAFKA_BROKER_ID: 5
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://10.227.64.182:9095  #宿主机监听端口
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://:9092
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 networks:
